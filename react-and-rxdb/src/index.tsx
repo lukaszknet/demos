@@ -51,6 +51,8 @@ async function main() {
     }
 
     root.render(<App addTask={addTask} tasks$={tasks$}/>);
+
+    (window as any).db = db;
 }
 
 main().then(() => console.log(`App started`));
