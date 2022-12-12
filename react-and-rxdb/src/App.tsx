@@ -19,14 +19,19 @@ export default function App(props: AppProps) {
 
     return (
         <div className="App">
-            <form>
-                <input id={'new-task'} defaultValue={''}/>
-                <input type={'button'} value={'Add task'} onClick={addTaskHandler}/>
-            </form>
+            <input id={'new-task'} defaultValue={''}/>
+            <input type={'button'} value={'Add task'} onClick={addTaskHandler}/>
             <ul>
                 {tasks?.map(it => <li
                     key={it.id}>{it.text} at {new Date(it.timestamp).toISOString()}</li>)}
             </ul>
+            <input type={'button'} value={'Open in new tab'} onClick={() => {
+                window.open(window.location.href, '_blank');
+            }} style={{
+                position: 'fixed',
+                bottom: 24,
+                right: 24
+            }} />
         </div>
     );
 }
